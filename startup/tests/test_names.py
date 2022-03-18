@@ -5,7 +5,9 @@ import pytest
 import requests
 from pyOlog import SimpleOlogClient
 
-body = ["t", "te", "tes", "test", "test1", "test-2"]
+# body = ["t", "te", "tes", "test", "test1", "test-2"]
+string = str(uuid.uuid4())
+body = [string[:i] for i, x in enumerate(string)]
 
 
 @pytest.mark.parametrize("body", body)
