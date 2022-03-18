@@ -9,7 +9,11 @@ body = ["t", "te", "tes", "test", "test1", "test-2"]
 
 
 @pytest.mark.parametrize("body", body)
-def test_body_attachment(body, logid=1180):
+@pytest.mark.parametrize("newline", [True, False])
+def test_body_attachment(body, newline, logid=1180):
+    if newline:
+        body = f"{body}\n"
+
     name = str(uuid.uuid4())
     fname = f"{name}.txt"
 
@@ -35,7 +39,10 @@ def test_body_attachment(body, logid=1180):
 
 
 @pytest.mark.parametrize("body", body)
-def test_body_atch(body, logid=1180):
+@pytest.mark.parametrize("newline", [True, False])
+def test_body_atch(body, newline, logid=1180):
+    if newline:
+        body = f"{body}\n"
     name = str(uuid.uuid4())
     fname = f"{name}.txt"
 
