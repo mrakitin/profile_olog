@@ -31,6 +31,7 @@ def test_body_attachment(body, logid=1180):
     res = requests.get(res_url, verify=False)
 
     print(f"  text = {res.text}")
+    assert res.text == body
 
 
 @pytest.mark.parametrize("body", body)
@@ -56,5 +57,4 @@ def test_body_atch(body, logid=1180):
     res = requests.get(res_url, verify=False)
 
     print(f"  text = {res.text}")
-    assert res.text == body
     assert res.text == body
