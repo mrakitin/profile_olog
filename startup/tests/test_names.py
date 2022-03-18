@@ -39,7 +39,7 @@ def test_body_attachment(body, newline, logid=1180):
     res = requests.get(res_url, verify=False)
 
     print(f"  text = {res.text}")
-    assert res.text == body
+    assert res.text == body, f"'{res.text}' (len {len(res.text)}) != '{body}' (len {len(body)})"
     assert len(res.text) == len(body)
 
 
